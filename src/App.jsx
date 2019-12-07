@@ -1,13 +1,11 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import Button from '@material-ui/core/Button';
 
 function App() {
   return (
-    <Container>
-      <Row>
-        <Col>Hello, world.</Col>
-      </Row>
-    </Container>
+    <Button variant="contained" color="primary">
+      Hello World
+    </Button>
   );
 }
 
