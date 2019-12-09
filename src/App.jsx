@@ -1,46 +1,41 @@
 import React from "react";
-import { makeStyles, styled } from "@material-ui/core/styles";
-
-import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import {
-  Typography,
-  AppBar,
-  Toolbar,
-  Button,
-  Box,
-  IconButton
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import { Typography, Button, Box } from "@material-ui/core";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
-const instagramGradient = "linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045)";
+const instaPurple = "#833ab4";
+const instaRed = "#fd1d1d";
+const instaOrange = "#fcb045";
+const instaGradient = `linear-gradient(90deg, ${instaPurple}, ${instaRed}, ${instaOrange})`;
+
+const moonlitAsteroid = "linear-gradient(#0F2027, #203A43, #2C5364)";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    background: moonlitAsteroid,
+    minHeight: "100vh",
+    minWidth: "100vw",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "white",
+    textAlign: "center"
+  },
   paper: {
     padding: theme.spacing(3),
     margin: theme.spacing(3)
   },
-  myButton: {
-    background: instagramGradient,
+  button: {
+    background: instaGradient,
     color: "white"
   },
-  appBarButton: {
-    marginLeft: theme.spacing(3)
-  },
-  appBar: {},
-  appBarHeader: {
-    textTransform: "uppercase",
-    flexGrow: 1
-  },
-  menuIcon: {
-    color: "white"
+  textEmphasis: {
+    color: "#ff0076"
   }
 }));
-
-const SiteAppBar = styled(AppBar)({
-  background: "black",
-  color: "white"
-});
 
 function App() {
   const classes = useStyles();
@@ -59,29 +54,22 @@ function App() {
 
   return (
     <>
-      <SiteAppBar className={classes.appBar} position="static">
-        <Toolbar>
-          <IconButton>
-            <MenuIcon className={classes.menuIcon} />
-          </IconButton>
-          <Typography className={classes.appBarHeader} variant="h6">
-            Daniel Varcas
+      <CssBaseline />
+      <Grid container className={classes.root} spacing={2}>
+        <Grid item xs={12}>
+          <Typography variant="h5" component="h1">
+            Hi, I'm <span className={classes.textEmphasis}>Daniel Varcas</span>.
           </Typography>
-          {linkButtons}
-        </Toolbar>
-      </SiteAppBar>
-
-      <Container>
-        <Grid container className={classes.root}>
-          <Grid item xs={12}>
-            <Box margin={2}>
-              <Typography variant="h1">Hello, world.</Typography>
-              <Typography variant="h2">Welcome to my website.</Typography>
-            </Box>
-          </Grid>
-          {linkButtons}
+          <Typography variant="h5" component="h1">
+            I'm a full-stack web developer.
+          </Typography>
         </Grid>
-      </Container>
+        <Grid item xs={12}>
+          <Button className={classes.button}>
+            See my work <ArrowForwardIcon />
+          </Button>
+        </Grid>
+      </Grid>
     </>
   );
 }
