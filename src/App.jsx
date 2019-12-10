@@ -10,7 +10,7 @@ const instaRed = "#fd1d1d";
 const instaOrange = "#fcb045";
 const instaGradient = `linear-gradient(90deg, ${instaPurple}, ${instaRed}, ${instaOrange})`;
 
-const moonlitAsteroid = "linear-gradient(#0F2027, #203A43, #2C5364)";
+const moonlitAsteroid = "linear-gradient(90deg, #0F2027, #203A43, #2C5364)";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,21 +55,24 @@ function App() {
   return (
     <Box className={classes.root}>
       <CssBaseline />
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Typography variant="h5" component="h1">
-            Hi, I'm <span className={classes.textEmphasis}>Daniel Varcas</span>.
-          </Typography>
-          <Typography variant="h5" component="h1">
-            I'm a full-stack web developer.
-          </Typography>
+      <Box>
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <Typography variant="h5" component="h1">
+              Hi, I'm{" "}
+              <span className={classes.textEmphasis}>Daniel Varcas</span>.
+            </Typography>
+            <Typography variant="h5" component="h1">
+              I'm a full-stack web developer.
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Button className={classes.button}>
+              See my work <ArrowForwardIcon />
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Button className={classes.button}>
-            See my work <ArrowForwardIcon />
-          </Button>
-        </Grid>
-      </Grid>
+      </Box>
     </Box>
   );
 }
