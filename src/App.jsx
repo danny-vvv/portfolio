@@ -53,9 +53,9 @@ function App() {
   ));
 
   return (
-    <>
+    <Box className={classes.root}>
       <CssBaseline />
-      <Grid container className={classes.root} spacing={2}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="h5" component="h1">
             Hi, I'm <span className={classes.textEmphasis}>Daniel Varcas</span>.
@@ -70,7 +70,7 @@ function App() {
           </Button>
         </Grid>
       </Grid>
-    </>
+    </Box>
   );
 }
 
