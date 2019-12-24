@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
@@ -37,44 +37,39 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function App() {
-  const classes = useStyles();
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  const links = [
-    { text: "GitHub", icon: "fab fa-github" },
-    { text: "LinkedIn", icon: "" },
-    { text: "Twitter", icon: "" }
-  ];
-  const linkButtons = links.map(link => (
-    <Button className={[classes.myButton, classes.appBarButton]}>
-      <i className={link.icon} />
-      {link.text}
-    </Button>
-  ));
+  render() {
+    const classes = useStyles();
 
-  return (
-    <Box className={classes.root}>
-      <CssBaseline />
-      <Box>
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
-            <Typography variant="h5" component="h1">
-              Hi, I'm{" "}
-              <span className={classes.textEmphasis}>Daniel Varcas</span>.
-            </Typography>
-            <Typography variant="h5" component="h1">
-              I'm a full-stack web developer.
-            </Typography>
+    return (
+      <Box className={classes.root}>
+        <CssBaseline />
+        <Box>
+          <Grid container spacing={4}>
+            <Grid item xs={12}>
+              <Typography variant="h5" component="h1">
+                Hi, I&apos;m{" "}
+                <span className={classes.textEmphasis}>Daniel Varcas</span>.
+              </Typography>
+              <Typography variant="h5" component="h1">
+                I&apos;m a full-stack web developer.
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Button className={classes.button}>
+                See my work <ArrowForwardIcon />
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <Button className={classes.button}>
-              See my work <ArrowForwardIcon />
-            </Button>
-          </Grid>
-        </Grid>
+        </Box>
       </Box>
-    </Box>
-  );
+    );
+  }
 }
 
 export default App;
